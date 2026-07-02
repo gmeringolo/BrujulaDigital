@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz — Brújula Digital</title>
+<meta name="description" content="Poné a prueba lo aprendido sobre ciudadanía digital con este quiz interactivo.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <svg class="compass-mini" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="#E8B84B" stroke-width="1.5"/>
+        <path d="M20 8 L24 20 L20 32 L16 20 Z" fill="#FF6F59"/>
+      </svg>
+      Brújula Digital
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="huella-digital.html">Huella Digital</a></li>
+        <li class="has-submenu">
+          <a href="seguridad.html">Seguridad</a>
+          <ul class="submenu">
+            <li><a href="seguridad.html#contrasenas">Contraseñas</a></li>
+            <li><a href="seguridad.html#phishing">Phishing</a></li>
+            <li><a href="seguridad.html#malware">Malware</a></li>
+          </ul>
+        </li>
+        <li><a href="convivencia.html">Convivencia</a></li>
+        <li><a href="quiz.html" class="active">Quiz</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section style="padding-top:52px; padding-bottom: 20px;">
+    <div class="container center">
+      <p class="rumbo" style="justify-content:center;">Ruta final</p>
+      <h1>Quiz: ¿Cuál es tu rumbo digital?</h1>
+      <p class="lede" style="max-width:56ch; margin:0 auto;">Seis preguntas para repasar huella digital, seguridad y convivencia online. Elegí una opción por pregunta; vas a ver de inmediato si acertaste.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 10px;">
+    <div class="container">
+      <div class="quiz-panel" id="quiz-panel">
+        <div class="quiz-progress" id="quiz-progress"></div>
+        <div id="quiz-body"><!-- generado por JavaScript --></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Brújula Digital</strong>
+      <p class="small" style="margin-top:6px;">Proyecto educativo — Trabajo Práctico Final, Módulo 6.</p>
+    </div>
+    <nav aria-label="Enlaces del pie de página">
+      <a href="index.html">Inicio</a>
+      <a href="huella-digital.html">Huella Digital</a>
+      <a href="seguridad.html">Seguridad</a>
+      <a href="convivencia.html">Convivencia</a>
+      <a href="quiz.html">Quiz</a>
+    </nav>
+  </div>
+  <div class="container small" style="margin-top:18px;">© <span class="current-year"></span> Brújula Digital. Sitio con fines educativos.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
