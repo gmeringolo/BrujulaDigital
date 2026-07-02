@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -8,26 +8,26 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<a class="enlace-salto" href="#contenido">Saltar al contenido</a>
 
-<header class="site-header">
-  <div class="nav-wrap">
-    <a class="brand" href="index.html">
-      <svg class="compass-mini" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<header class="encabezado-sitio">
+  <div class="contenedor-navegacion">
+    <a class="marca" href="index.html">
+      <svg class="brujula-mini" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="20" cy="20" r="18" fill="none" stroke="#E8B84B" stroke-width="1.5"/>
         <path d="M20 8 L24 20 L20 32 L16 20 Z" fill="#FF6F59"/>
       </svg>
       Brújula Digital
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-    <nav class="main-nav" aria-label="Navegación principal">
+    <button class="boton-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="menu-principal" aria-label="Navegación principal">
       <ul>
-        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="index.html" class="activo">Inicio</a></li>
         <li><a href="huella-digital.html">Huella Digital</a></li>
-        <li class="has-submenu">
+        <li class="tiene-submenu">
           <a href="seguridad.html">Seguridad</a>
           <ul class="submenu">
-            <li><a href="seguridad.html#contrasenas">Contraseñas</a></li>
+              <li><a href="seguridad.html#contrasenas">Contraseñas</a></li>
             <li><a href="seguridad.html#phishing">Phishing</a></li>
             <li><a href="seguridad.html#malware">Malware</a></li>
           </ul>
@@ -41,19 +41,19 @@
 
 <main id="contenido">
 
-  <section class="hero">
-    <div class="container hero-grid">
+  <section class="portada">
+    <div class="contenedor grilla-portada">
       <div>
         <p class="rumbo">Ciudadanía digital · Módulo educativo</p>
-        <h1>Aprendé a trazar tu propio rumbo en internet.</h1>
-        <p class="lede">Un sitio para descubrir, con ejemplos concretos y actividades interactivas, cómo cuidar tu huella digital, protegerte de amenazas y convivir mejor en el mundo online.</p>
-        <div class="hero-actions">
-          <a href="huella-digital.html" class="btn btn-primary">Empezar el recorrido</a>
-          <a href="quiz.html" class="btn btn-ghost">Ir directo al quiz</a>
+          <h1>Aprendé a trazar tu propio rumbo en internet.</h1>
+          <p class="lede">Un sitio para descubrir, con ejemplos concretos y actividades interactivas, cómo cuidar tu huella digital, protegerte de amenazas y convivir mejor en el mundo online.</p>
+        <div class="acciones-portada">
+          <a href="huella-digital.html" class="boton boton-principal">Empezar el recorrido</a>
+          <a href="quiz.html" class="boton boton-secundario">Ir directo al quiz</a>
         </div>
       </div>
       <div>
-        <svg class="compass-hero" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de una brújula">
+        <svg class="brujula-portada" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de una brújula">
           <circle cx="200" cy="200" r="170" fill="none" stroke="#AFC6CF" stroke-opacity="0.25" stroke-width="1"/>
           <circle cx="200" cy="200" r="140" fill="none" stroke="#E8B84B" stroke-opacity="0.55" stroke-width="1.5"/>
           <circle cx="200" cy="200" r="140" fill="none" stroke="#F4ECD8" stroke-opacity="0.08" stroke-width="18"/>
@@ -77,24 +77,24 @@
     </div>
   </section>
 
-  <section class="section-alt">
-    <div class="container">
+  <section class="seccion-alternativa">
+    <div class="contenedor">
       <p class="rumbo">Tres rutas para explorar</p>
       <h2>Elegí por dónde empezar</h2>
       <p style="max-width: 60ch;">El sitio está organizado como un mapa de navegación: cada ruta trabaja un aspecto distinto de la vida digital, con ejemplos, consejos prácticos y actividades para poner a prueba lo aprendido.</p>
 
-      <div class="card-grid">
-        <a class="card reveal" href="huella-digital.html">
+      <div class="grilla-tarjetas">
+        <a class="tarjeta revelar" href="huella-digital.html">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20c0-4 2-6 3-8s1-4-1-6M14 20c2-5 1-7-1-9M20 20c-1-6-3-8-3-12" stroke-linecap="round"/></svg>
-          <h3>Huella Digital</h3>
-          <p>Qué rastro dejamos en internet, quién puede verlo y cómo gestionarlo con criterio.</p>
+              <h3>Huella Digital</h3>
+              <p>Qué rastro dejamos en internet, quién puede verlo y cómo gestionarlo con criterio.</p>
         </a>
-        <a class="card reveal" href="seguridad.html">
+        <a class="tarjeta revelar" href="seguridad.html">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.8-3 8.4-7 9-4-.6-7-4.2-7-9V6l7-3z" stroke-linejoin="round"/></svg>
           <h3>Seguridad</h3>
           <p>Contraseñas fuertes, cómo detectar phishing y protegerte del malware.</p>
         </a>
-        <a class="card reveal" href="convivencia.html">
+        <a class="tarjeta revelar" href="convivencia.html">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="8" r="2.4"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M14.5 14.8c2.6.2 5 2 5.5 4.5" stroke-linecap="round"/></svg>
           <h3>Convivencia</h3>
           <p>Netiqueta, ciberacoso y cómo actuar frente a la desinformación.</p>
@@ -104,16 +104,16 @@
   </section>
 
   <section>
-    <div class="container two-col">
-      <div class="reveal">
+    <div class="contenedor dos-columnas">
+      <div class="revelar">
         <p class="rumbo">Historia</p>
         <h2>La historia de Marta</h2>
         <p>A Marta le apasiona enseñar usando las nuevas tecnologías. Sus clases están llenas de juegos en línea, videos, podcasts, mapas mentales y proyectos colaborativos.</p>
-        <p>Un día decidió llevar su amor por las TIC al siguiente nivel y armó, junto a sus estudiantes, un laboratorio digital donde se aprende a navegar internet de forma crítica y seguridad.</p>
+        <p>Un día decidió llevar su amor por las TIC al siguiente nivel y armó, junto a sus estudiantes, un laboratorio digital donde se aprende a navegar internet de forma crítica y segura.</p>
         <p>Brújula Digital nace de esa misma idea: convertir el aula en un punto de partida para recorrer internet con más herramientas y menos riesgos.</p>
       </div>
-      <div class="reveal">
-        <div class="callout">
+      <div class="revelar">
+        <div class="llamada">
           <strong>¿Sabías que…?</strong>
           <p style="margin: 8px 0 0;">Según distintos estudios, la mayoría de los incidentes de seguridad informática empiezan con un error humano, como hacer clic en un enlace desconocido o reutilizar la misma contraseña en varios sitios.</p>
         </div>
@@ -121,22 +121,22 @@
     </div>
   </section>
 
-  <section class="section-alt">
-    <div class="container center">
-      <p class="rumbo" style="justify-content:center;">Poné a prueba tu rumbo</p>
+  <section class="seccion-alternativa">
+    <div class="contenedor centrado">
+      <p class="rumbo" style="justify-content:centrado;">Poné a prueba tu rumbo</p>
       <h2>¿Cuánto sabés de ciudadanía digital?</h2>
       <p style="max-width: 55ch; margin: 0 auto 22px;">Recorré las tres secciones y después animate a jugar el quiz final. Vas a recibir un puntaje y recomendaciones según tus respuestas.</p>
-      <a href="quiz.html" class="btn btn-primary">Jugar el quiz</a>
+      <a href="quiz.html" class="boton boton-principal">Jugar el quiz</a>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
+<footer class="pie-sitio">
+  <div class="contenedor grilla-pie">
     <div>
       <strong>Brújula Digital</strong>
-      <p class="small" style="margin-top:6px;">Proyecto educativo — Trabajo Práctico Final, Módulo 6.</p>
+      <p class="pequeno" style="margin-top:6px;">Proyecto educativo — Trabajo Práctico Final, Módulo 6.</p>
     </div>
     <nav aria-label="Enlaces del pie de página">
       <a href="index.html">Inicio</a>
@@ -146,9 +146,10 @@
       <a href="quiz.html">Quiz</a>
     </nav>
   </div>
-  <div class="container small" style="margin-top:18px;">© <span class="current-year"></span> Brújula Digital. Sitio con fines educativos.</div>
+  <div class="contenedor pequeno" style="margin-top:18px;">© <span class="current-year"></span> Brújula Digital. Sitio con fines educativos.</div>
 </footer>
 
 <script src="js/script.js"></script>
 </body>
 </html>
+

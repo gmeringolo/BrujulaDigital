@@ -1,4 +1,4 @@
-
+﻿
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
@@ -6,56 +6,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initPasswordMeter();
   initQuiz();
-  initContactForm();
   initYear();
 });
 
 
 function initNav() {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.main-nav');
+  const toggle = document.querySelector('.boton-menu');
+  const nav = document.querySelector('.menu-principal');
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      toggle.textContent = isOpen ? '✕' : '☰';
+      toggle.textContent = isOpen ? '✖' : '☰';
     });
   }
-
-  // En pantallas táctiles, permite tocar para abrir el submenú
-  document.querySelectorAll('.has-submenu > a').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 720) {
-        e.preventDefault();
-        link.parentElement.classList.toggle('open');
-      }
-    });
-  });
 }
 
 
 function initActiveLink() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.main-nav a[href]').forEach((a) => {
+  document.querySelectorAll('.menu-principal a[href]').forEach((a) => {
     const href = a.getAttribute('href').split('/').pop();
-    if (href === current) a.classList.add('active');
+    if (href === current) a.classList.add('activo');
   });
 }
 
 
 function initScrollReveal() {
-  const items = document.querySelectorAll('.reveal');
+  const items = document.querySelectorAll('.revelar');
   if (!items.length) return;
 
   if (!('IntersectionObserver' in window)) {
-    items.forEach((el) => el.classList.add('is-visible'));
+    items.forEach((el) => el.classList.add('visible'));
     return;
   }
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
+        entry.target.classList.add('visible');
         io.unobserve(entry.target);
       }
     });
@@ -67,11 +56,11 @@ function initScrollReveal() {
 
 function initPasswordMeter() {
   const input = document.getElementById('password-check');
-  const fill = document.getElementById('meter-fill');
-  const label = document.getElementById('meter-label');
+  const fill = document.getElementById('relleno-medidor');
+  const label = document.getElementById('etiqueta-medidor');
   if (!input || !fill || !label) return;
 
-  const rules = document.querySelectorAll('.rule-item');
+  const rules = document.querySelectorAll('.elemento-regla');
 
   input.addEventListener('input', () => {
     const val = input.value;
@@ -88,19 +77,19 @@ function initPasswordMeter() {
     rules.forEach((el) => {
       const rule = el.dataset.rule;
       const ok = !!checks[rule];
-      el.classList.toggle('rule-ok', ok);
-      el.textContent = (ok ? '☑ ' : '☐ ') + el.textContent.slice(2);
+      el.classList.toggle('regla-cumplida', ok);
+      el.textContent = (ok ? '✓ ' : '◻ ') + el.textContent.slice(2);
     });
 
     const pct = val.length === 0 ? 0 : (score / 5) * 100;
     fill.style.width = pct + '%';
 
     let text = 'Escribí una contraseña para evaluarla';
-    let color = 'var(--color-danger)';
+    let color = '#E4572E';
     if (val.length > 0) {
-      if (score <= 2) { text = 'Débil — le falta variedad'; color = 'var(--color-danger)'; }
-      else if (score <= 4) { text = 'Aceptable — podés reforzarla'; color = 'var(--color-accent)'; }
-      else { text = 'Fuerte — buen trabajo'; color = 'var(--color-accent-2)'; }
+      if (score <= 2) { text = 'Débil — le falta variedad'; color = '#E4572E'; }
+      else if (score <= 4) { text = 'Aceptable — podés reforzarla'; color = '#FF6F59'; }
+      else { text = 'Fuerte — buen trabajo'; color = '#E8B84B'; }
     }
     label.textContent = text;
     fill.style.background = color;
@@ -173,14 +162,14 @@ const QUIZ_QUESTIONS = [
 ];
 
 function initQuiz() {
-  const panel = document.getElementById('quiz-panel');
+  const panel = document.getElementById('panel-cuestionario');
   if (!panel) return;
 
   let current = 0;
   let score = 0;
   const total = QUIZ_QUESTIONS.length;
 
-  const progressEl = document.getElementById('quiz-progress');
+  const progressEl = document.getElementById('progreso-cuestionario');
   const bodyEl = document.getElementById('quiz-body');
 
   buildProgress();
@@ -213,24 +202,24 @@ function initQuiz() {
     bodyEl.innerHTML = `
       <p class="rumbo">Pregunta ${current + 1} de ${total}</p>
       <h3>${item.q}</h3>
-      <div class="quiz-options" role="group" aria-label="Opciones de respuesta"></div>
-      <p class="quiz-feedback" aria-live="polite"></p>
+      <div class="opciones-cuestionario" role="group" aria-label="Opciones de respuesta"></div>
+      <p class="retroalimentacion-cuestionario" aria-live="polite"></p>
       <div style="text-align:right;">
-        <button type="button" class="btn btn-primary" id="quiz-next" disabled>Siguiente ruta →</button>
+        <button type="button" class="boton boton-principal" id="quiz-next" disabled>Siguiente ruta →</button>
       </div>
     `;
 
-    const optionsWrap = bodyEl.querySelector('.quiz-options');
-    const feedback = bodyEl.querySelector('.quiz-feedback');
+    const optionsWrap = bodyEl.querySelector('.opciones-cuestionario');
+    const feedback = bodyEl.querySelector('.retroalimentacion-cuestionario');
     const nextBtn = bodyEl.querySelector('#quiz-next');
     let answered = false;
 
     item.options.forEach((opt, idx) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'quiz-option';
-      btn.textContent = opt;
-      btn.addEventListener('click', () => {
+      const boton = document.createElement('button');
+      boton.type = 'button';
+      boton.className = 'opcion-cuestionario';
+      boton.textContent = opt;
+      boton.addEventListener('click', () => {
         if (answered) return;
         answered = true;
         const isCorrect = idx === item.correct;
@@ -246,7 +235,7 @@ function initQuiz() {
         feedback.classList.add(isCorrect ? 'ok' : 'bad');
         nextBtn.disabled = false;
       });
-      optionsWrap.appendChild(btn);
+      optionsWrap.appendChild(boton);
     });
 
     nextBtn.addEventListener('click', () => {
@@ -263,11 +252,11 @@ function initQuiz() {
     else msg = 'Es un buen punto de partida: repasá las secciones del sitio y volvé a intentarlo.';
 
     bodyEl.innerHTML = `
-      <div class="quiz-result">
-        <p class="rumbo center" style="justify-content:center;">Resultado final</p>
+      <div class="resultado-cuestionario">
+        <p class="rumbo centrado" style="justify-content:centrado;">Resultado final</p>
         <p class="score">${score}/${total}</p>
         <p>${msg}</p>
-        <button type="button" class="btn btn-primary" id="quiz-restart">Volver a navegar</button>
+        <button type="button" class="boton boton-principal" id="quiz-restart">Volver a navegar</button>
       </div>
     `;
     document.getElementById('quiz-restart').addEventListener('click', () => {
@@ -278,55 +267,9 @@ function initQuiz() {
   }
 }
 
-
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  const success = document.getElementById('form-success');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let valid = true;
-
-    const nombre = form.querySelector('#nombre');
-    const email = form.querySelector('#email');
-    const rol = form.querySelector('#rol');
-    const mensaje = form.querySelector('#mensaje');
-    const acepta = form.querySelector('#acepta');
-
-    valid = validateField(nombre, nombre.value.trim().length >= 2, 'Ingresá tu nombre.') && valid;
-    valid = validateField(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()), 'Ingresá un correo válido.') && valid;
-    valid = validateField(rol, rol.value !== '', 'Seleccioná una opción.') && valid;
-    valid = validateField(mensaje, mensaje.value.trim().length >= 10, 'Contanos un poco más (mínimo 10 caracteres).') && valid;
-    valid = validateField(acepta, acepta.checked, 'Debés aceptar para continuar.') && valid;
-
-    if (valid) {
-      success.classList.add('show');
-      success.textContent = `¡Gracias, ${nombre.value.trim()}! Recibimos tu mensaje y lo vamos a revisar pronto.`;
-      form.reset();
-      form.querySelectorAll('.field').forEach((f) => f.classList.remove('has-error'));
-    } else {
-      success.classList.remove('show');
-    }
-  });
-
-  function validateField(el, condition, message) {
-    const field = el.closest('.field');
-    const errorEl = field.querySelector('.field-error');
-    if (!condition) {
-      field.classList.add('has-error');
-      if (errorEl) errorEl.textContent = message;
-      return false;
-    }
-    field.classList.remove('has-error');
-    return true;
-  }
-}
-
-
 function initYear() {
   document.querySelectorAll('.current-year').forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
 }
+
